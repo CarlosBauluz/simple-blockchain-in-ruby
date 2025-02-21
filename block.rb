@@ -1,11 +1,18 @@
+require 'time'
+
 class Block
   attr_reader :index, :timestamp, :transactions, 
 							:transactions_count, :previous_hash, 
-							:nonce, :hash, :difficulty
+							:nonce, :hash, :daytime
 
   def initialize(index, transactions, previous_hash)
     @index         		 	 = index
     @timestamp      	 	 = Time.now
+    @daytime             = @daytime = if (Time.new().strftime("%H").to_i < 20 && Time.new().strftime("%H").to_i > 8)
+                               "DAY"
+                             else
+                               "NIGHT"
+                             end
     @transactions 	 		 = transactions
 		@transactions_count  = transactions.size
     @previous_hash 		 	 = previous_hash
