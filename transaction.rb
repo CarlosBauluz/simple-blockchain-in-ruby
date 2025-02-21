@@ -2,7 +2,7 @@ def get_transactions_data
 
 	transactions_block ||= []
 	blank_transaction = Hash[from: "", to: "",
-													 what: "", qty: ""]
+													 what: "", qty: "", difficulty: ""]
 	loop do
 		puts "" 
 		puts "Enter your name for the new transaction"
@@ -16,9 +16,12 @@ def get_transactions_data
 		puts "" 
 		puts "Who do you want to send it to ?"
 		to 	 = gets.chomp
+		puts ""
+		puts "What difficulty u want the hash to have?"
+		difficulty = gets.chomp
 
 		transaction = Hash[from: "#{from}", to: "#{to}", 
-											 what: "#{what}", qty: "#{qty}"]
+											 what: "#{what}", qty: "#{qty}", difficulty: "#{difficulty}"]
 		transactions_block << transaction
 
 		puts "" 
